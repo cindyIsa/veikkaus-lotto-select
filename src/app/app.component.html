@@ -1,0 +1,21 @@
+<div class="hero">
+  <div class="header__bot">
+    <h1 class="hero__header">Lotto</h1>
+    <span class="hero__subtitle">8 000 000 €</span>
+  </div>
+</div>
+<div class="tabs">
+  <ul class="tabs_choices">
+    <li class="choice" (click)="set_indicator_co($event)">
+      <a [routerLink]="[ '/peruspeli' ]" routerLinkActive="selected">Peruspeli</a>
+    </li>
+    <li class="choice" (click)="set_indicator_co($event)">
+      <a [routerLink]="[ '/jarjestelma' ]" routerLinkActive="selected">Järjestelmä ja harava</a>
+    </li>
+    <span class="tabs__indicator" aria-hidden="true" [ngStyle]='indicator_style'></span>
+  </ul>
+  
+  
+</div>
+
+<router-outlet></router-outlet>

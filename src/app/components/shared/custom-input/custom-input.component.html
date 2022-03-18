@@ -1,0 +1,11 @@
+<div class="customInput">
+    <div class="customInput__label">
+        <span class="form_label">{{inputLabel}}</span>
+        <span>{{inputLabelAmount}}</span>
+    </div>
+    <div class="customInput__input">
+        <input [(ngModel)]="amount" type="text">
+        <button (click)="addAmount(false)" id="minus">-</button>
+        <button (click)="addAmount(true)">+</button>
+    </div>
+</div>

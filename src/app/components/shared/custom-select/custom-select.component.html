@@ -1,0 +1,13 @@
+<div class="customSelect">
+    <div class="customSelect__label">
+        <span class="form_label">{{inputLabel}}</span>
+        <svg class="tandem-icon tooltip__icon" aria-hidden="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 16px; min-width: 16px; height: 16px;"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0Zm0 22.5C6.21 22.5 1.5 17.79 1.5 12S6.21 1.5 12 1.5 22.5 6.21 22.5 12 17.79 22.5 12 22.5Zm3.44-14.99c.27.63.37 1.32.27 2.01-.1.68-.38 1.32-.81 1.86-.43.53-1.01.94-1.66 1.16a.75.75 0 0 0-.5.7v1.01c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-1.01c0-.47.14-.92.41-1.3.27-.38.64-.67 1.09-.82a2.279 2.279 0 0 0 1.48-1.81c.06-.41 0-.82-.16-1.2s-.42-.71-.76-.95-.73-.38-1.14-.41c-.41-.02-.83.06-1.19.25-.37.19-.67.48-.89.83-.22.35-.33.76-.33 1.17 0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-.69.19-1.36.55-1.95.36-.59.87-1.07 1.48-1.38.61-.32 1.3-.46 1.98-.41.69.05 1.34.28 1.91.68.57.4 1 .94 1.27 1.57Zm-2.23 10.12c0 .62-.5 1.12-1.12 1.12-.62 0-1.12-.5-1.12-1.12 0-.62.5-1.12 1.12-1.12.62 0 1.12.5 1.12 1.12Z" fill="currentColor"></path></svg>
+    </div>
+    <div class="customSelect__input">
+        <span class="selectContent">{{selectOption}}</span>
+        <select name="select" (change) = "setOption($event)">
+            <option *ngFor="let item of selectOptions"  value={{item.val}}>{{item.name}}</option>
+        </select>
+        <svg class="tandem-icon select__icon" aria-hidden="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="m20.53 8.529-8 8c-.15.15-.34.22-.53.22s-.38-.07-.53-.22l-8-8a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l7.47 7.47 7.47-7.47c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06Z" fill="currentColor"></path></svg>
+    </div>
+</div>

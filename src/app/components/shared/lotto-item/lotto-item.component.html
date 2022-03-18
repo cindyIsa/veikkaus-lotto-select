@@ -1,0 +1,57 @@
+<div class="select-lotto-panel" [ngClass]="{'current': is_current}">
+  <div class="select-lotto-part">
+    <div class="current-lotto" *ngIf="is_current">
+      <div class="background">
+        <div class="select-lotto-number" *ngFor="let _ of [].constructor(7)"></div>
+      </div>
+      <div class="current-lotto-number">
+        <div class="select-lotto-number" *ngFor="let item of current_lotto">{{item}}</div>
+      </div>
+    </div>
+    <div class="selected-lotto" *ngIf="!is_current">
+      <div class="selected-lotto-number">
+        <div class="select-lotto-number" *ngFor="let item of lotto.numbers.slice(0,7)">{{item}}</div>
+      </div>
+    </div>
+    <div class="select-plus" *ngIf="is_plus">
+      <svg class="tandem-icon row__icon" aria-hidden="false" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="width: 32px; min-width: 32px; color: rgb(170, 75, 191); height: 32px;">
+        <path
+          d="M13.39 9.21c-.17-.14-.34-.21-.52-.21h-2.44v3.09h2.44c.18 0 .35-.07.52-.22.17-.15.31-.34.42-.58.11-.24.17-.49.17-.75a1.796 1.796 0 0 0-.59-1.33Z"
+          fill="currentColor"></path>
+        <path
+          d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.61 0 12 0Zm3.27 12.12c-.26.48-.6.86-1.03 1.14-.43.28-.88.43-1.36.43h-2.44v2.65c0 .24-.08.45-.22.61-.15.16-.35.25-.59.25-.23 0-.42-.08-.57-.25a.864.864 0 0 1-.22-.61v-8.1c0-.24.08-.45.25-.61.16-.16.37-.24.61-.24h3.19c.48 0 .94.14 1.36.42.42.28.77.66 1.03 1.13.26.48.39 1.01.39 1.6-.01.57-.14 1.1-.4 1.58Z"
+          fill="currentColor"></path>
+      </svg>
+      <span class="select-lotto-number select-lotto-plus">{{lotto.numbers[7]}}</span>
+    </div>
+  </div>
+
+  <div class="editOption">
+    <button mat-button (click)="randomPlus(lotto.id)">
+      <svg class="tandem-icon" aria-hidden="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        style="width: 20px; min-width: 20px; height: 20px;">
+        <path
+          d="M.465 6.968c0-.41.34-.75.75-.75h5.03c.94.07 1.78.32 2.56.74.77.42 1.45 1.02 1.97 1.72.25.33.18.8-.16 1.05-.13.1-.29.15-.45.15-.23 0-.46-.1-.6-.3-.39-.53-.91-.98-1.49-1.3-.59-.32-1.23-.51-1.89-.56h-4.98c-.4 0-.74-.33-.74-.75Zm17.28.75h3.22l-1.59 1.6c-.29.29-.29.77 0 1.06.15.15.34.22.53.22s.38-.07.53-.22l2.88-2.88c.07-.07.12-.15.16-.24.08-.18.08-.39 0-.57a.776.776 0 0 0-.16-.24l-2.88-2.88c-.3-.3-.77-.3-1.06 0-.29.3-.29.77 0 1.06l1.59 1.59h-3.22c-4.04 0-6.34 5.26-6.44 5.49-.02.05-2 4.58-5.06 4.58h-5.03c-.41 0-.75.34-.75.75s.34.75.75.75h5.03c4.04 0 6.34-5.26 6.44-5.49.02-.05 2-4.58 5.06-4.58Zm5.72 9.03a.776.776 0 0 0-.16-.24l-2.88-2.88a.754.754 0 0 0-1.06 0c-.29.29-.29.77 0 1.06l1.6 1.6h-3.17c-.67-.05-1.3-.24-1.89-.56-.59-.32-1.09-.76-1.49-1.3a.75.75 0 0 0-1.2.9c.53.71 1.19 1.29 1.97 1.72.78.43 1.62.68 2.56.74h3.22l-1.59 1.59c-.29.29-.29.77 0 1.06.15.15.34.22.53.22s.38-.07.53-.22l2.88-2.87c.07-.07.12-.15.16-.24.07-.19.07-.4-.01-.58Z"
+          fill="currentColor"></path>
+      </svg>
+    </button>
+    <button mat-button>
+      <svg class="tandem-icon" aria-hidden="false" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        style="width: 20px; min-width: 20px; height: 20px;">
+        <path
+          d="M12.003 22.595c-.2 0-.4-.08-.54-.23l-9.59-10a6.412 6.412 0 0 1-1.19-7.41 6.388 6.388 0 0 1 5.75-3.55c1 0 1.96.23 2.86.68.62.31 1.18.71 1.67 1.2l1.04 1.04 1.04-1.04a6.376 6.376 0 0 1 4.54-1.88c1.72 0 3.33.67 4.54 1.88.49.49.89 1.05 1.2 1.67 1.24 2.48.76 5.46-1.2 7.41l-9.58 9.99c-.14.15-.33.24-.54.24Zm-5.57-19.69c-.53 0-1.05.09-1.56.25-1.25.42-2.26 1.3-2.85 2.47-.95 1.9-.58 4.18.92 5.68l9.06 9.45 9.05-9.44c1.51-1.51 1.88-3.8.93-5.69-.24-.47-.55-.9-.92-1.28a4.895 4.895 0 0 0-3.48-1.44c-1.31 0-2.55.51-3.48 1.44l-1.57 1.57a.75.75 0 0 1-1.06 0l-1.56-1.57c-.38-.37-.81-.68-1.28-.92-.7-.35-1.43-.52-2.2-.52Z"
+          fill="currentColor"></path>
+      </svg>
+    </button>
+    <button mat-button (click)="deleteLotto(lotto.id)">
+      <svg class="tandem-icon" aria-hidden="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        style="width: 20px; min-width: 20px; height: 20px;">
+        <path
+          d="M22.475 3.75h-6V3a2.209 2.209 0 0 0-.66-1.59 2.27 2.27 0 0 0-1.59-.66h-4.5a2.27 2.27 0 0 0-2.082 1.388A2.21 2.21 0 0 0 7.475 3v.75h-6a.75.75 0 1 0 0 1.5h1.56l1.38 15.94a2.22 2.22 0 0 0 .72 1.46c.41.389.955.604 1.52.6h10.74a2.19 2.19 0 0 0 1.52-.6c.416-.378.673-.9.72-1.46l1.33-15.94h1.56a.75.75 0 1 0 0-1.5h-.05ZM8.975 3a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 .75.75v.75h-6V3Zm9.12 18.06a.76.76 0 0 1-.24.49.74.74 0 0 1-.51.2H6.605a.74.74 0 0 1-.51-.2.76.76 0 0 1-.24-.49L4.535 5.25h14.88l-1.32 15.81Zm-7.62-11.31v7.5a.75.75 0 1 1-1.5 0v-7.5a.75.75 0 1 1 1.5 0Zm4.5 0v7.5a.75.75 0 1 1-1.5 0v-7.5a.75.75 0 1 1 1.5 0Z"
+          fill="currentColor"></path>
+      </svg>
+    </button>
+  </div>
+</div>

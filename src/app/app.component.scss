@@ -1,0 +1,63 @@
+.hero{
+    background-color: #fd0;
+    color: #26282b;
+    font-family: proxima-nova,Helvetica,Arial,sans-serif;
+    margin: 0 0 0.75rem;
+    height: 200px;;
+    .header__bot{
+        padding: 100px 0 0 10px;
+    }
+}
+.tabs{
+    border-color: #ebeff5;
+    font-size: 1.125rem;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 1.5rem;
+    .tabs_choices{
+        align-items: center;
+        display: flex;
+        padding: 10px;
+        justify-content: flex-start;
+        background: unset;
+        border: unset;
+        color: unset;
+        font-family: proxima-nova,Helvetica,Arial,sans-serif;
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    .choice{
+        display: flex;
+        flex: 0 1 auto;
+        justify-content: center;
+        margin: 0 4px;
+        position: relative;
+        border-color: #26282b;
+    }
+    &::after{
+        border-bottom: 3px solid;
+        border-color: inherit;
+        bottom: 0px;
+        content: "";
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        
+    }   
+    .selected{
+        font-weight: 700;
+    }
+    .tabs__indicator{
+        background-color: rgb(255, 221, 0);
+        width: 154px;
+        border-radius: 3px;
+        bottom: 0;
+        height: 3px;
+        position: absolute;
+        transition: width .3s ease-out,transform .3s ease-out;
+        will-change: width,transform;
+        z-index: 2;
+    }
+}

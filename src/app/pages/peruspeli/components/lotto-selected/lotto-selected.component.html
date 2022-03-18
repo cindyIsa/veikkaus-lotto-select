@@ -1,0 +1,14 @@
+<ng-container *ngIf="lottos | async; let lottos">
+  <div class="form_label select-decs" *ngIf="lottos.length > 0">
+    {{lottos.length }} valmista riviä
+  </div>
+  <div class="form_label select-decs" *ngIf="lottos.length === 0">
+    Ei valmiita rivejä
+  </div>
+  <ul class="select-lotto">
+    <app-lotto-item  [is_plus] = "is_plus" [is_current] = true [current_lotto] = "current_lotto"></app-lotto-item>
+    <li *ngFor="let lotto of lottos ">
+        <app-lotto-item [lotto]="lotto"  [is_plus] = "is_plus" [is_current] = false></app-lotto-item>
+    </li>
+  </ul>
+</ng-container>

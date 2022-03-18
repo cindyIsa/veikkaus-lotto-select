@@ -1,0 +1,38 @@
+  .customInput {
+    input {
+        line-height: 1.5rem;
+        min-height: 2.5rem;
+        border-radius: 8px;
+        border: none;
+        text-align: center;
+        display: block;
+        background: transparent;
+        padding-right: 5rem;
+      }
+    &__label {
+      display: flex;
+      justify-content:space-between;
+    }
+
+    &__input {
+      display: flex;
+      position: relative;
+      border:1px solid #fd0;
+      clip-path: inset(0 0 0 0 round 8px);
+      border-radius: 8px;
+      #minus{
+          right: 2.5rem;
+      }
+      button {
+        position: absolute;
+        width: 2.5rem;
+        right: -1px;
+        margin-right: 1px;
+        height: 100%;
+        background-color: #fd0;
+        border: none;
+        
+      }
+
+    }
+  }

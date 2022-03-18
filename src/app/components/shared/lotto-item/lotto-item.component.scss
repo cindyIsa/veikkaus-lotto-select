@@ -1,0 +1,84 @@
+.select-lotto-number {
+  border: 2px solid rgb(255, 187, 30);
+  font-size: 1rem;
+  font-weight: 400;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+.current {
+  background-color: rgb(255, 251, 189);
+}
+
+.select-lotto-panel {
+  padding: 10px;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+  .select-lotto-part {
+    display: flex;
+    flex-direction: row;
+
+    .current-lotto {
+      display: flex;
+      position: relative;
+
+      .background {
+        display: flex;
+        flex-direction: row;
+        .select-lotto-number{
+            background-color: #fff;
+            border: 2px solid #fff;
+        }
+      }
+
+      .current-lotto-number {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+      }
+    }
+    .selected-lotto {
+      display: flex;
+
+      &-number {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .select-plus {
+      display: flex;
+
+      &>svg {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .editOption {
+    display: flex;
+
+    &>button {
+      min-width: 20px;
+    }
+  }
+
+}
+
+
+.current-select {
+  position: relative;
+  background-color: rgb(255, 251, 189);
+
+  .select-lotto__select__lotto__num {
+    border: 2px solid #fff;
+    background-color: #fff;
+  }
+
+}

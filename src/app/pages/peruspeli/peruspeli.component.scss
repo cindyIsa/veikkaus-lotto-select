@@ -1,0 +1,11 @@
+.peruspeli{
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    & > *{
+        padding: 10px;
+    }
+    .leftside{
+        border-right: 1px solid #ddd;
+        
+    }
+}
