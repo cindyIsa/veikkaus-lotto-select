@@ -1,4 +1,7 @@
 import { Component,Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/models/AppState';
+import { changeWeekDuration } from 'src/app/store/reducers/duration';
 
 @Component({
   selector: 'app-custom-select',
@@ -9,8 +12,8 @@ export class CustomSelectComponent implements OnInit {
   @Input() inputLabel:string=""
   @Input() inputLabelAmount:string = ""
   @Input() selectOptions:Array<any> = []
-  selectOption = "10 viikoa"
-  constructor() { }
+  selectOption = "tilaus"
+  constructor(private store:Store<AppState>) { }
 
   ngOnInit(): void {
   
@@ -18,6 +21,7 @@ export class CustomSelectComponent implements OnInit {
   setOption = (event:Event) => { 
     const selectDom = event.target as HTMLSelectElement
     this.selectOption = this.selectOptions[selectDom.selectedIndex].name
-   }
+    this.store.dispatch(changeWeekDuration( {duration:this.selectOptions[selectDom.selectedIndex].val}))
+  }
 
 }

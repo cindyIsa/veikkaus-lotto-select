@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { lottoReducer } from './store/reducers/lotto';
 import { plusReduce } from './store/reducers/plus';
 import { CurrentLotto } from './store/reducers/currentLotto';
+import { durationReducer } from './store/reducers/duration';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CurrentLotto } from './store/reducers/currentLotto';
       'lotto':lottoReducer,
       'plus':plusReduce,
       'currentLotto':CurrentLotto,
+      'weekDuration':durationReducer,
     }, {})
   ],
   providers: [],

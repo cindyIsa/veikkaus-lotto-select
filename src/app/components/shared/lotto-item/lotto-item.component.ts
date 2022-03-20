@@ -4,6 +4,7 @@ import { week_duration } from 'src/app/store/enums/enums';
 import { lotto } from 'src/app/store/models/lotto';
 import { DeleteLottoByID, RandomLottoByID } from 'src/app/store/actions/lotto';
 import { AppState } from 'src/app/store/models/AppState';
+import { deleteCurrentLotto } from 'src/app/store/reducers/currentLotto';
 
 
 @Component({
@@ -28,9 +29,14 @@ export class LottoItemComponent implements OnInit {
   ngOnInit(): void {
   }
   deleteLotto = (id:string) => { 
+    if(id === ""){
+      this.store.dispatch(deleteCurrentLotto())
+      return
+    }
     this.store.dispatch(DeleteLottoByID({id}))
    }
    randomPlus = (id:string) => { 
+     
      this.store.dispatch(RandomLottoByID({id}))
     }
 

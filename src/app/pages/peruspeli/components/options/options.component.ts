@@ -22,11 +22,12 @@ export class OptionsComponent implements OnInit {
   currentRow = 0
   private maxRows = 20
   customSelectOption = [
-      {val:1, name:'1 viikko'},
-      {val:2, name:'2 viikko'},
-      {val:3, name:'3 viikko'},
-      {val:5, name:'5 viikko'},
-      {val:10, name:'10 viikko'},]
+      {val:week_duration.oneWeek, name:'1 viikko'},
+      {val:week_duration.twoWeeks, name:'2 viikko'},
+      {val:week_duration.threeWeeks, name:'3 viikko'},
+      {val:week_duration.fiveWeeks, name:'5 viikko'},
+      {val:week_duration.tenWeeks, name:'10 viikko'},
+      {val:week_duration.tilaus, name:'tilaus'},]
   constructor(private lottoService:LottoGenerateService, private store:Store<AppState>) { }
 
   ngOnInit(): void {

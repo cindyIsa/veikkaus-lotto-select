@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="editOption">
+  <div class="editOption" *ngIf="(is_current && current_lotto.length > 0) || !is_current ">
     <button mat-button (click)="randomPlus(lotto.id)">
       <svg class="tandem-icon" aria-hidden="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
         style="width: 20px; min-width: 20px; height: 20px;">

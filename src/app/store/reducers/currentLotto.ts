@@ -6,12 +6,15 @@ export const pushNewToCurrentLotto = createAction(
     "[currentLotto]  add a new number to currentLotto",
     props<{num:number}>()
 )
+export const deleteCurrentLotto = createAction(
+    '[currentLotto] delete the current lotto'
+)
 
 export const CurrentLotto = createReducer(
     initialState,
     on(pushNewToCurrentLotto, (state,{num})=>{
-        console.log(state)
-        if(state.length < 7){
+        // console.log(state)
+        if(state.length < 7 && num != 0){
             if(!state.includes(num)){
                 return [...state,num]
             }else{
@@ -22,4 +25,5 @@ export const CurrentLotto = createReducer(
         }
         
     }),
+    on(deleteCurrentLotto, ()=> initialState),
 )
