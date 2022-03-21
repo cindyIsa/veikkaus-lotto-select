@@ -10,6 +10,7 @@ import { lottoReducer } from './store/reducers/lotto';
 import { plusReduce } from './store/reducers/plus';
 import { CurrentLotto } from './store/reducers/currentLotto';
 import { durationReducer } from './store/reducers/duration';
+import { reducers } from './reducers';
 
 
 @NgModule({
@@ -21,12 +22,7 @@ import { durationReducer } from './store/reducers/duration';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    StoreModule.forRoot({
-      'lotto':lottoReducer,
-      'plus':plusReduce,
-      'currentLotto':CurrentLotto,
-      'weekDuration':durationReducer,
-    }, {})
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

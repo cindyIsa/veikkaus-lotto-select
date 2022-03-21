@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { nanoid } from 'nanoid';
+import { of } from 'rxjs';
+import { delay, map, mergeWith} from 'rxjs/operators';
 import { AddNewLotto } from 'src/app/store/actions/lotto';
 import { week_duration } from 'src/app/store/enums/enums';
 import { AppState } from 'src/app/store/models/AppState';
-import { pushNewToCurrentLotto } from 'src/app/store/reducers/currentLotto';
+import { pushAllToCurrentLotto, pushNewToCurrentLotto } from 'src/app/store/reducers/currentLotto';
 import { getLottoAmount, getTotalPay } from 'src/app/store/selectors/lotto';
 
 @Component({
@@ -20,6 +22,7 @@ export class LottoSelectionPanelComponent implements OnInit {
   is_plus = false
   pay = 0
   weekDuration = 1
+  is_loading = false
   ngOnInit(): void {
     this.store.select(s => s.currentLotto).subscribe(
       (result) => {
@@ -57,8 +60,15 @@ export class LottoSelectionPanelComponent implements OnInit {
       time_duration: week_duration.oneWeek,
       price: 1,
     }
-    this.store.dispatch(AddNewLotto({ lotto: newlotto }))
-    this.store.dispatch(pushNewToCurrentLotto({ num: 0 }))
+    // this.store.dispatch(AddNewLotto({ lotto: newlotto }))
+    setTimeout(() => {
+      this.store.dispatch(AddNewLotto({ lotto: newlotto }))
+      this.store.dispatch(pushNewToCurrentLotto({ num: 0 }))
+    }, 500);
+    
+    
+    
+    
   }
   setCurrentLotto = (currentNumber: number) => {
     this.store.dispatch(pushNewToCurrentLotto({ num: currentNumber }))
@@ -77,7 +87,8 @@ export class LottoSelectionPanelComponent implements OnInit {
       }
       current_lotto.push(randomNumber)
     }
-    console.log(current_lotto)
+    // console.log(current_lotto)
+    this.store.dispatch(pushAllToCurrentLotto({numbers:current_lotto}))
     this.generateLotto(current_lotto)
 
   }

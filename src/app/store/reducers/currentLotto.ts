@@ -9,6 +9,10 @@ export const pushNewToCurrentLotto = createAction(
 export const deleteCurrentLotto = createAction(
     '[currentLotto] delete the current lotto'
 )
+export const pushAllToCurrentLotto = createAction(
+    '[currentLotto] add a new group of numbers to currentlotto',
+    props<{numbers:number[]}>()
+)
 
 export const CurrentLotto = createReducer(
     initialState,
@@ -25,5 +29,6 @@ export const CurrentLotto = createReducer(
         }
         
     }),
+    on(pushAllToCurrentLotto, (state,action) => action.numbers),
     on(deleteCurrentLotto, ()=> initialState),
 )
